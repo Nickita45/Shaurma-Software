@@ -17,7 +17,7 @@ public class OrderLine {
     private long user_id;
     private long shaurmaType_id;
     private long spice_id;
-    private Set<Long> ingridients_ids;
+    private Set<Long> additive_ids;
     private String description;
 
     public long getOrderId() {
@@ -48,18 +48,18 @@ public class OrderLine {
         this.spice_id = spice_id;
     }
 
-    public Set<Long> getIngridientsId() {
-        return ingridients_ids;
+    public Set<Long> getAdditiveId() {
+        return additive_ids;
     }
-    public void setIngridientsid(long id) {
-        ingridients_ids.add(id);
+    public void setAdditiveId(long id) {
+        additive_ids.add(id);
     }
 
 
-    public String getDescreption() {
+    public String getDescription() {
         return description;
     }
-    public void setDescreptionId(String description) {
+    public void setDescriptionId(String description) {
         this.description = description;
     }
 
