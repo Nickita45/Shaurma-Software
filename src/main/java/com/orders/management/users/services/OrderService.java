@@ -7,6 +7,6 @@ import org.springframework.stereotype.Service;
 public interface OrderService {
 
     int addOrder(Order order);
-    void deleteOrder(int id);
 
+    void deleteOrder(long id);
 }
