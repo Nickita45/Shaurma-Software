@@ -11,17 +11,18 @@ public class Order {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private Integer id;
 
     private Date date;
-    private boolean closed;
-    private long cashierId;
+    private boolean done;
+    private int userId;
 
-    public int getId() {
+
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -33,23 +34,21 @@ public class Order {
         this.date = date;
     }
 
-    public boolean isClosed() {
-        return closed;
+
+    public int getUserId() {
+        return userId;
     }
 
-    public void setClosed(boolean closed) {
-        this.closed = closed;
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
-    public long getCashierId() {
-        return cashierId;
+    public boolean isDone() {
+        return done;
     }
 
-    public void setCashierId(long cashierId) {
-        this.cashierId = cashierId;
+    public void setDone(boolean done) {
+        this.done = done;
     }
-
-
-
 
 }
