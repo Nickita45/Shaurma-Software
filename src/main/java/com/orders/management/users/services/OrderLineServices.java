@@ -4,11 +4,16 @@ import com.orders.management.domain.Additive;
 import com.orders.management.domain.ShaurmaType;
 import com.orders.management.domain.Spice;
 
+import java.util.List;
+import java.util.Set;
+
 public interface OrderLineServices {
-    long removeAdditive(long id);
+    long removeAdditive(int id);
     void removeAllAdditive();
+    List<Additive> getAllAdditives();
 
     void addNewTypeShaurma(ShaurmaType type);
     void addNewSpice(Spice spic);
-    void addNewAdditive(Additive addes);
+    long addNewAdditive(Additive addes);
+
 }

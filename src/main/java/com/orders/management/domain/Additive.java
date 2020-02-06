@@ -1,17 +1,19 @@
 package com.orders.management.domain;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-
+import javax.persistence.*;
+import java.util.Set;
+@Entity
+@Table(name = "Additive")
 public class Additive {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    private int id;
 
     private String name;
     private double price;
+    @OneToMany(mappedBy = "additive_ids")
+    private Set<Line> line_ids;
 
     public String getName() {
         return name;

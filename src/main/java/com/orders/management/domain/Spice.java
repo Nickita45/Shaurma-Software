@@ -1,10 +1,10 @@
 package com.orders.management.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Set;
+
 @Entity
+@Table(name = "Spice")
 public class Spice {
 
     @Id
@@ -13,6 +13,8 @@ public class Spice {
 
     private String name;
     private double price;
+    @ManyToMany(mappedBy = "spice_id")
+    private Set<Line> line_ids;
 
     public String getName() {
         return name;

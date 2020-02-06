@@ -4,9 +4,10 @@ import com.orders.management.domain.Additive;
 import com.orders.management.domain.ShaurmaType;
 import com.orders.management.domain.Spice;
 import com.orders.management.users.repository.OrderLineRepository;
-import com.orders.management.users.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class OrderLineServicesImpl implements OrderLineServices{
@@ -14,7 +15,7 @@ public class OrderLineServicesImpl implements OrderLineServices{
     @Autowired
     private OrderLineRepository orderline;
     @Override
-    public long removeAdditive(long id) {
+    public long removeAdditive(int id) {
         orderline.deleteById(id);
         return id;
     }
@@ -22,6 +23,11 @@ public class OrderLineServicesImpl implements OrderLineServices{
     @Override
     public void removeAllAdditive() {
         orderline.deleteAll();
+    }
+
+    @Override
+    public List<Additive> getAllAdditives() {
+        return (List<Additive>) orderline.findAll();
     }
 
     @Override
@@ -35,7 +41,8 @@ public class OrderLineServicesImpl implements OrderLineServices{
     }
 
     @Override
-    public void addNewAdditive(Additive addes) {
-
+    public long addNewAdditive(Additive addes) {
+        orderline.save(addes);
+        return addes.getId();
     }
 }

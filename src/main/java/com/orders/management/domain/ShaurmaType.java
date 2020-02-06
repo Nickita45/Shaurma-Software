@@ -1,11 +1,10 @@
 package com.orders.management.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Set;
 
 @Entity
+@Table(name = "ShaurmaType")
 public class ShaurmaType {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -13,6 +12,8 @@ public class ShaurmaType {
 
     private String name;
     private double price;
+    @OneToMany(mappedBy="shaurmaTypeId")
+    private Set<Line> line_ids;
 
     public String getName() {
         return name;
