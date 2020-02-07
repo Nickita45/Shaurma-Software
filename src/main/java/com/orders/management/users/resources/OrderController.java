@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class OrderController {
@@ -30,4 +31,11 @@ public class OrderController {
         orderService.deleteOrder(id);
     }
 
+    public void update(@RequestBody Order order){
+        orderService.update(order);
+    }
+
+    public Optional<Order> getOrderById(Integer id){
+        return orderService.getOrderById(id);
+    }
 }
