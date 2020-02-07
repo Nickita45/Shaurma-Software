@@ -8,12 +8,12 @@ import java.util.List;
 import java.util.Set;
 
 public interface OrderLineServices {
-    long removeAdditive(int id);
+    int removeAdditive(int id);
     void removeAllAdditive();
     List<Additive> getAllAdditives();
 
     void addNewTypeShaurma(ShaurmaType type);
     void addNewSpice(Spice spic);
-    long addNewAdditive(Additive addes);
+    int addNewAdditive(Additive addes);
 
 }

@@ -15,7 +15,7 @@ public class OrderLineServicesImpl implements OrderLineServices{
     @Autowired
     private OrderLineRepository orderline;
     @Override
-    public long removeAdditive(int id) {
+    public int removeAdditive(int id) {
         orderline.deleteById(id);
         return id;
     }
@@ -41,7 +41,7 @@ public class OrderLineServicesImpl implements OrderLineServices{
     }
 
     @Override
-    public long addNewAdditive(Additive addes) {
+    public int addNewAdditive(Additive addes) {
         orderline.save(addes);
         return addes.getId();
     }

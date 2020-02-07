@@ -9,17 +9,19 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/line")
-public class OrderLineController {
+public class AdditivesController {
 
     @Autowired
     private OrderLineServices serv;
 
     @PutMapping
-    public long addAdditive(@RequestBody Additive adds) {
+    public int addAdditive(@RequestBody Additive adds) {
         return serv.addNewAdditive(adds);
     }
     @GetMapping
     public List<Additive> getAllAdditives() {
         return serv.getAllAdditives();
     }
+    @DeleteMapping
+    public int deleteAdditives(@RequestParam int id) { return serv.removeAdditive(id);}
 }

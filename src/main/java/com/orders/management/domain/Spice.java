@@ -9,7 +9,7 @@ public class Spice {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    private int id;
 
     private String name;
     private double price;
@@ -31,7 +31,7 @@ public class Spice {
     }
 
 
-    public long getId() {
+    public int getId() {
         return id;
     }
 }

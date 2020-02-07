@@ -3,7 +3,6 @@ package com.orders.management.domain;
 import javax.persistence.*;
 import java.io.Serializable;
 
-@Entity
 public class LineAdditive {
 
     @EmbeddedId

@@ -30,7 +30,7 @@ public class Additive {
     }
 
 
-    public long getId() {
+    public int getId() {
         return id;
     }
 }

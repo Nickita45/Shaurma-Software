@@ -8,7 +8,7 @@ import java.util.Set;
 public class ShaurmaType {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    private int id;
 
     private String name;
     private double price;
@@ -30,7 +30,7 @@ public class ShaurmaType {
     }
 
 
-    public long getId() {
+    public int getId() {
         return id;
     }
 }
