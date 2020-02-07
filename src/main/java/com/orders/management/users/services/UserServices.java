@@ -5,7 +5,7 @@ import com.orders.management.domain.User;
 import java.util.List;
 
 public interface UserServices {
-    List<User> getAllPerson();
-    long addPerson(User pers);
-    void deletePerson(long id);
+    List<User> getAllUsers();
+    int addUser(User user);
+    int deleteUser(int id);
 }

@@ -1,7 +1,5 @@
 package com.orders.management.domain;
 
-import lombok.Data;
-
 import javax.persistence.*;
 
 @Entity
@@ -18,7 +16,6 @@ public class Role {
 
     @Column(name = "role_name",length = 30)
     private String roleName;
-
 
     @ManyToOne
     @JoinColumn(name = "user_id")

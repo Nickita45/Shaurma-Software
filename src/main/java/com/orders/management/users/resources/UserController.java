@@ -10,26 +10,24 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/users")
-public class GreetingController {
+public class UserController {
 
     @Autowired
     private UserServices serv;
-    private static final String template = "Hello, %s!";
-    private final AtomicLong counter = new AtomicLong();
 
     @PutMapping
-    public long AddPerson(@RequestBody User user) {
-        return serv.addPerson(user);
+    public long AddUser(@RequestBody User user) {
+        return serv.addUser(user);
     }
 
     @GetMapping
-    public List<User> getAllPerson() {
-        return serv.getAllPerson();
+    public List<User> getAllUsers() {
+        return serv.getAllUsers();
     }
 
     @DeleteMapping
-    public void deletePerson(@RequestParam Long id){
-        serv.deletePerson(id);
+    public void deleteUser(@RequestParam int id){
+        serv.deleteUser(id);
     }
 
 

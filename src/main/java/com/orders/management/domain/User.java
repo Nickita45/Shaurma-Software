@@ -1,7 +1,5 @@
 package com.orders.management.domain;
 
-import lombok.Data;
-
 import javax.persistence.*;
 import java.util.Set;
 
@@ -12,25 +10,31 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "user_id")
-    private long userId;
+    private int userId;
+
     @Column(name = "first_name",length = 40)
     private String firstName;
+
     @Column(name = "last_name",length = 40)
     private String lastName;
+
     @Column(name = "login",length = 40)
     private String login;
+
     @Column(name = "password",length = 40)
     private String password;
+
     @Column(name = "active")
     private boolean active;
+
     @Column(name = "email",length = 40)
     private String email;
 
-    @OneToMany(cascade = CascadeType.ALL,mappedBy = "user",fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user", fetch = FetchType.EAGER)
     private Set<Role> roleList;
 
-    public void setId(long id){this.userId = id;}
-    public long getId(){return userId; }
+    public void setId(int id){ this.userId = id;}
+    public long getId(){ return userId; }
 
     public void setFirstName(String firstName) { this.firstName = firstName; }
     public String getFirstName() { return firstName; }
