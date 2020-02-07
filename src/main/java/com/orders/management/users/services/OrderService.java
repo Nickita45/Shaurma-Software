@@ -1,18 +1,17 @@
 package com.orders.management.users.services;
 
-import com.orders.management.domain.Order;
+import com.orders.management.domain.Document;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public interface OrderService {
 
-    int addOrder(Order order);
-    void update(Order order);
-    List<Order> getAllOrders();
-    Optional<Order> getOrderById(Integer id);
+    int addOrder(Document document);
+    Document update(Document document);
+    List<Document> getAllOrders();
+    Document getOrderById(Integer id);
     void deleteOrder(Integer id);
 
 }
