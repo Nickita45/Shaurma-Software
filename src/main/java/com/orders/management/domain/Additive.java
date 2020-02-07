@@ -3,7 +3,7 @@ package com.orders.management.domain;
 import javax.persistence.*;
 import java.util.Set;
 @Entity
-@Table(name = "Additive")
+@Table(name = "additive")
 public class Additive {
 
     @Id
@@ -29,6 +29,13 @@ public class Additive {
         this.price = price;
     }
 
+    public Set<Line> getLine_ids() {
+        return line_ids;
+    }
+
+    public void setLine_ids(Set<Line> line_ids) {
+        this.line_ids = line_ids;
+    }
 
     public int getId() {
         return id;

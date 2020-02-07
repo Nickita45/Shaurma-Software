@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.Set;
 
 @Entity
-@Table(name = "ShaurmaType")
+@Table(name = "shaurmaType")
 public class ShaurmaType {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

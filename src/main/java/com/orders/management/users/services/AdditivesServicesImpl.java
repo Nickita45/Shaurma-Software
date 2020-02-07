@@ -1,19 +1,18 @@
 package com.orders.management.users.services;
 
 import com.orders.management.domain.Additive;
-import com.orders.management.domain.ShaurmaType;
-import com.orders.management.domain.Spice;
-import com.orders.management.users.repository.OrderLineRepository;
+import com.orders.management.users.repository.AdditivesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Set;
 
 @Service
-public class OrderLineServicesImpl implements OrderLineServices{
+public class AdditivesServicesImpl implements AdditivesServices{
 
     @Autowired
-    private OrderLineRepository orderline;
+    private AdditivesRepository orderline;
     @Override
     public int removeAdditive(int id) {
         orderline.deleteById(id);
@@ -31,18 +30,13 @@ public class OrderLineServicesImpl implements OrderLineServices{
     }
 
     @Override
-    public void addNewTypeShaurma(ShaurmaType type) {
-
-    }
-
-    @Override
-    public void addNewSpice(Spice spic) {
-
-    }
-
-    @Override
     public int addNewAdditive(Additive addes) {
-        orderline.save(addes);
-        return addes.getId();
+
+        return  orderline.save(addes).getId();
+    }
+
+    @Override
+    public Set<Additive> findByAdditiveIds(Set<Integer> additiveIdList) {
+        return orderline.findByAdditiveIds(additiveIdList);
     }
 }

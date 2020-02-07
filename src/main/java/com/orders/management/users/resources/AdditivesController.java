@@ -1,18 +1,18 @@
 package com.orders.management.users.resources;
 
 import com.orders.management.domain.Additive;
-import com.orders.management.users.services.OrderLineServices;
+import com.orders.management.users.services.AdditivesServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/line")
+@RequestMapping("/additives")
 public class AdditivesController {
 
     @Autowired
-    private OrderLineServices serv;
+    private AdditivesServices serv;
 
     @PutMapping
     public int addAdditive(@RequestBody Additive adds) {

@@ -7,7 +7,7 @@ import javax.persistence.*;
 import java.util.List;
 import java.util.Set;
 
-@Table(name = "Line")
+@Table(name = "line")
 @Entity
 public class Line {
     @Id
@@ -35,51 +35,53 @@ public class Line {
     private Set<Additive> additive_ids;
     private String description;
 
-    public int getOrderId() {
+    public int getOrder_id() {
         return order_id;
     }
-    public void setOrderid(int order_id) {
+
+    public void setOrder_id(int order_id) {
         this.order_id = order_id;
     }
 
-    public int getUserId() {
+    public int getUser_id() {
         return user_id;
     }
-    public void setUserid(int user_id) {
+
+    public void setUser_id(int user_id) {
         this.user_id = user_id;
     }
 
     public ShaurmaType getShaurmaTypeId() {
         return shaurmaTypeId;
     }
+
     public void setShaurmaTypeId(ShaurmaType shaurmaTypeId) {
         this.shaurmaTypeId = shaurmaTypeId;
     }
 
-    public Set<Spice> getSpiceid() {
+    public Set<Spice> getSpice_id() {
         return spice_id;
     }
 
-    public Set<Additive> getAdditiveIds() {
-        return additive_ids;
-    }
-
-    public void setAdditiveIds(Set<Additive> additive_Id) {
-        this.additive_ids = additive_ids;
-    }
-
-    public void setSpiceid(Set<Spice> spice_id) {
+    public void setSpice_id(Set<Spice> spice_id) {
         this.spice_id = spice_id;
     }
 
+    public Set<Additive> getAdditive_ids() {
+        return additive_ids;
+    }
+
+    public void setAdditive_ids(Set<Additive> additive_ids) {
+        this.additive_ids = additive_ids;
+    }
 
     public String getDescription() {
         return description;
     }
-    public void setDescriptionId(String description) {
+
+    public void setDescription(String description) {
         this.description = description;
     }
-
 
     public int getId() {
         return id;
