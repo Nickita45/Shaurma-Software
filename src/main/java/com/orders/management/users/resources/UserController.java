@@ -1,6 +1,7 @@
 package com.orders.management.users.resources;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.concurrent.atomic.AtomicLong;
 
 import com.orders.management.domain.User;
@@ -16,7 +17,7 @@ public class UserController {
     private UserServices serv;
 
     @PutMapping
-    public long AddUser(@RequestBody User user) {
+    public int AddUser(@RequestBody User user) {
         return serv.addUser(user);
     }
 
@@ -29,6 +30,5 @@ public class UserController {
     public void deleteUser(@RequestParam int id){
         serv.deleteUser(id);
     }
-
 
 }

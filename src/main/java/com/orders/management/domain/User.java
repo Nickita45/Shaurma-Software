@@ -34,7 +34,7 @@ public class User {
     private Set<Role> roleList;
 
     public void setId(int id){ this.userId = id;}
-    public long getId(){ return userId; }
+    public int getId(){ return userId; }
 
     public void setFirstName(String firstName) { this.firstName = firstName; }
     public String getFirstName() { return firstName; }
