@@ -1,6 +1,7 @@
 package com.orders.management.domain;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,7 +14,7 @@ import java.util.Date;
 public class Document {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy= GenerationType.TABLE)
     private Integer id;
 
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
@@ -33,6 +34,10 @@ public class Document {
 
     public LocalDateTime getDate() {
         return date;
+    }
+
+    public void setDate(){
+        this.date = LocalDateTime.now();
     }
 
     public void setDate(LocalDateTime date){

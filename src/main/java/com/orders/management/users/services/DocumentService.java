@@ -6,12 +6,12 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public interface OrderService {
+public interface DocumentService {
 
-    int addOrder(Document document);
+    int addDocument(Document document);
     Document update(Document document);
-    List<Document> getAllOrders();
-    Document getOrderById(Integer id);
-    void deleteOrder(Integer id);
+    List<Document> getAllDocuments();
+    Document getDocumentById(Integer id);
+    void deleteDocument(Integer id);
 
 }
