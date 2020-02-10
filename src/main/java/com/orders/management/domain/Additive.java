@@ -1,5 +1,7 @@
 package com.orders.management.domain;
 
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.*;
 import java.util.Set;
 @Entity
@@ -7,8 +9,10 @@ import java.util.Set;
 public class Additive {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
+
+    private int id ;
 
     private String name;
     private double price;

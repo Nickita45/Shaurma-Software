@@ -1,7 +1,7 @@
-package com.orders.management.users.services;
+package com.orders.management.services;
 
 import com.orders.management.domain.Additive;
-import com.orders.management.users.repository.AdditivesRepository;
+import com.orders.management.repository.AdditivesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,31 +12,31 @@ import java.util.Set;
 public class AdditivesServicesImpl implements AdditivesServices{
 
     @Autowired
-    private AdditivesRepository orderline;
+    private AdditivesRepository additivesRepository;
     @Override
     public int removeAdditive(int id) {
-        orderline.deleteById(id);
+        additivesRepository.deleteById(id);
         return id;
     }
 
     @Override
     public void removeAllAdditive() {
-        orderline.deleteAll();
+        additivesRepository.deleteAll();
     }
 
     @Override
     public List<Additive> getAllAdditives() {
-        return (List<Additive>) orderline.findAll();
+        return (List<Additive>) additivesRepository.findAll();
     }
 
     @Override
     public int addNewAdditive(Additive addes) {
 
-        return  orderline.save(addes).getId();
+        return  additivesRepository.save(addes).getId();
     }
 
     @Override
     public Set<Additive> findByAdditiveIds(Set<Integer> additiveIdList) {
-        return orderline.findByAdditiveIds(additiveIdList);
+        return additivesRepository.findByAdditiveIds(additiveIdList);
     }
 }

@@ -1,9 +1,7 @@
-package com.orders.management.users.resources;
+package com.orders.management.resources;
 
 import com.orders.management.domain.ShaurmaType;
-import com.orders.management.domain.Spice;
-import com.orders.management.users.services.ShaurmaTypeServices;
-import com.orders.management.users.services.SpiceServices;
+import com.orders.management.services.ShaurmaTypeServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

@@ -1,30 +1,19 @@
-package com.orders.management.users.services;
+package com.orders.management.services;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.orders.management.domain.Additive;
 import com.orders.management.domain.Line;
-import com.orders.management.domain.ShaurmaType;
-import com.orders.management.domain.Spice;
-import com.orders.management.users.repository.AdditivesRepository;
-import com.orders.management.users.repository.LineRepository;
-import com.orders.management.users.repository.ShaurmaTypeRepository;
-import com.orders.management.users.repository.SpicesRepository;
-import com.orders.management.users.resources.RequestLine;
+import com.orders.management.repository.LineRepository;
+import com.orders.management.resources.RequestLine;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.PostConstruct;
-import java.util.Arrays;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
-import java.util.stream.Collectors;
 
 @Service
 public class LineServicesImpl implements LineServices{
 
     @Autowired
-    private LineRepository orderline;
+    private LineRepository lineRepository;
     @Autowired
     private AdditivesServices additivesServices;
     @Autowired
@@ -36,13 +25,13 @@ public class LineServicesImpl implements LineServices{
 
     @Override
     public int removeLine(int id) {
-        orderline.deleteById(id);
+        lineRepository.deleteById(id);
         return id;
     }
 
     @Override
     public List<Line> getAllLine() {
-        return (List<Line>) orderline.findAll();
+        return (List<Line>) lineRepository.findAll();
     }
 
     @Override
@@ -56,7 +45,7 @@ public class LineServicesImpl implements LineServices{
         line1.setSpice_id(spiceService.findBySpiceIds(requestLine.getSpiceIds()));
 
 
-        return orderline.save(line1).getId();
+        return lineRepository.save(line1).getId();
     }
 
 }

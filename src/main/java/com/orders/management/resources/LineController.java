@@ -1,9 +1,7 @@
-package com.orders.management.users.resources;
+package com.orders.management.resources;
 
 import com.orders.management.domain.Line;
-import com.orders.management.domain.Spice;
-import com.orders.management.users.services.LineServices;
-import com.orders.management.users.services.SpiceServices;
+import com.orders.management.services.LineServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

@@ -1,14 +1,6 @@
-package com.orders.management.users.resources;
+package com.orders.management.resources;
 
 
-import com.orders.management.domain.Additive;
-import com.orders.management.domain.ShaurmaType;
-import com.orders.management.domain.Spice;
-import jdk.nashorn.internal.objects.annotations.Getter;
-import jdk.nashorn.internal.objects.annotations.Setter;
-
-import javax.persistence.*;
-import java.util.List;
 import java.util.Set;
 
 

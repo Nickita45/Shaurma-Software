@@ -1,9 +1,7 @@
-package com.orders.management.users.services;
+package com.orders.management.services;
 
 import com.orders.management.domain.ShaurmaType;
-import com.orders.management.domain.Spice;
-import com.orders.management.users.repository.ShaurmaTypeRepository;
-import com.orders.management.users.repository.SpicesRepository;
+import com.orders.management.repository.ShaurmaTypeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,26 +11,26 @@ import java.util.List;
 public class ShaurmaTypeServicesImpl implements ShaurmaTypeServices{
 
     @Autowired
-    private ShaurmaTypeRepository orderline;
+    private ShaurmaTypeRepository shaurmaTypeRepository;
     @Override
     public int removeShaurmaType(int id) {
-        orderline.deleteById(id);
+        shaurmaTypeRepository.deleteById(id);
         return id;
     }
 
     @Override
     public List<ShaurmaType> getAllShaurmaTypes() {
-        return (List<ShaurmaType>) orderline.findAll();
+        return (List<ShaurmaType>) shaurmaTypeRepository.findAll();
     }
 
     @Override
-    public int addNewShaurma(ShaurmaType addes) {
+    public int addNewShaurma(ShaurmaType shaurmaType) {
 
-        return  orderline.save(addes).getId();
+        return  shaurmaTypeRepository.save(shaurmaType).getId();
     }
 
     @Override
     public ShaurmaType findbyId(int id) {
-        return orderline.findById(id).get();
+        return shaurmaTypeRepository.findById(id).get();
     }
 }

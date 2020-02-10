@@ -1,9 +1,8 @@
-package com.orders.management.users.services;
+package com.orders.management.services;
 
-import com.orders.management.domain.Additive;
 import com.orders.management.domain.Spice;
-import com.orders.management.users.repository.AdditivesRepository;
-import com.orders.management.users.repository.SpicesRepository;
+import com.orders.management.repository.AdditivesRepository;
+import com.orders.management.repository.SpicesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,28 +13,28 @@ import java.util.Set;
 public class SpiceServiceImpl implements SpiceServices{
 
     @Autowired
-    private SpicesRepository orderline;
+    private SpicesRepository spicesRepository;
     @Autowired
     private AdditivesRepository additivesRepository;
     @Override
     public int removeSpice(int id) {
-        orderline.deleteById(id);
+        spicesRepository.deleteById(id);
         return id;
     }
 
     @Override
     public List<Spice> getAllSpices() {
-        return (List<Spice>) orderline.findAll();
+        return (List<Spice>) spicesRepository.findAll();
     }
 
     @Override
     public int addNewSpice(Spice addes) {
 
-        return orderline.save(addes).getId();
+        return spicesRepository.save(addes).getId();
     }
 
     @Override
     public Set<Spice> findBySpiceIds(Set<Integer> spiceIdList) {
-        return orderline.findBySpiceIds(spiceIdList);
+        return spicesRepository.findBySpiceIds(spiceIdList);
     }
 }

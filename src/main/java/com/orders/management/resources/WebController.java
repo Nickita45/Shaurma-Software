@@ -1,4 +1,4 @@
-package com.orders.management.users.resources;
+package com.orders.management.resources;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

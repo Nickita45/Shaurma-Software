@@ -1,5 +1,7 @@
 package com.orders.management.domain;
 
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.*;
 import java.util.Set;
 
@@ -7,8 +9,8 @@ import java.util.Set;
 @Table(name = "shaurmaType")
 public class ShaurmaType {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id ;
 
     private String name;
     private double price;

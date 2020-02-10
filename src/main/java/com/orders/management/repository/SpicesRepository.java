@@ -1,6 +1,5 @@
-package com.orders.management.users.repository;
+package com.orders.management.repository;
 
-import com.orders.management.domain.Additive;
 import com.orders.management.domain.Spice;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;

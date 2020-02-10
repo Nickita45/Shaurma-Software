@@ -1,4 +1,4 @@
-package com.orders.management.users.services;
+package com.orders.management.services;
 
 import com.orders.management.domain.Additive;
 

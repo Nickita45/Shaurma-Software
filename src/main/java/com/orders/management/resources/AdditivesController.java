@@ -1,7 +1,7 @@
-package com.orders.management.users.resources;
+package com.orders.management.resources;
 
 import com.orders.management.domain.Additive;
-import com.orders.management.users.services.AdditivesServices;
+import com.orders.management.services.AdditivesServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
