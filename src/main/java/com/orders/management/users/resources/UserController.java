@@ -31,4 +31,8 @@ public class UserController {
         serv.deleteUser(id);
     }
 
+    @GetMapping("/id")
+    public User getUser(@RequestParam int id) { return serv.getUser(id); }
+
+
 }

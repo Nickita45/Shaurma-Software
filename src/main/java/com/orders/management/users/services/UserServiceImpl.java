@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
+import javax.jws.soap.SOAPBinding;
 import java.util.List;
 import java.util.Optional;
 
@@ -33,7 +34,9 @@ public class UserServiceImpl implements UserServices {
 
     @Override
     public User getUser(int id){
-        userRep.findById(id);
-    })
+        Optional<User> optional = userRep.findById(id);
+        return optional.orElse(new User());
+
+    }
 
 }
