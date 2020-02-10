@@ -9,4 +9,5 @@ public interface UserServices {
     List<User> getAllUsers();
     int addUser(User user);
     int deleteUser(int id);
+    User getUser(int id);
 }

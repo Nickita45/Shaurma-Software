@@ -31,4 +31,9 @@ public class UserServiceImpl implements UserServices {
         return id;
     }
 
+    @Override
+    public User getUser(int id){
+        userRep.findById(id);
+    })
+
 }
