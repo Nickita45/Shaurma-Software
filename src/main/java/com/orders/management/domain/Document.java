@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 public class Document {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.TABLE)
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Integer id;
 
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
