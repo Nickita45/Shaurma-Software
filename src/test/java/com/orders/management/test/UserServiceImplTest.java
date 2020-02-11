@@ -42,10 +42,14 @@ class UserServiceImplTest {
         //user.setRoleList("User");
 
         when(userRepository.findById(id)).thenReturn(Optional.of(user));
+        /*int result = userServiceImpl.deleteUser(user.getId());
+        assertNotNull(result);
+        assertEquals(result, user.getId());
+        System.out.println(result+""+user.getId());*/
+
         when(userRepository.existsById(user.getId())).thenReturn(false);
         assertFalse(userRepository.existsById(user.getId()));
-
-
+        System.out.println("Delete"+ user.getFirstName());
 
     }
 
@@ -60,7 +64,6 @@ class UserServiceImplTest {
         user.setPassword("petrov");
         user.setActive(true);
         user.setEmail("alex@alex.com");
-
 
         when(userRepository.findById(id)).thenReturn(Optional.of(user));
         User result= userServiceImpl.getUser(id); // get info about user
@@ -138,10 +141,12 @@ class UserServiceImplTest {
         user.setEmail("alex@alex.com");
 
         when(userRepository.findById(id)).thenReturn(Optional.of(user));
+        user.setFirstName("Nick");
         when(userRepository.save(user)).thenReturn(user);
 
         User result = userServiceImpl.updateUser(user);
         assertEquals(user,result);
+        System.out.println(user.getFirstName());
     }
 
 }

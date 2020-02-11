@@ -2,8 +2,8 @@ package com.orders.management.services;
 
 import com.orders.management.domain.Spice;
 import com.orders.management.repository.SpicesRepository;
-import com.orders.management.users.repository.UserRepository;
-import com.orders.management.users.services.UserServiceImpl;
+import com.orders.management.repository.UserRepository;
+import com.orders.management.services.UserServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
