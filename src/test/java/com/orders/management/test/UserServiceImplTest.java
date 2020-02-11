@@ -92,7 +92,7 @@ class UserServiceImplTest {
 
     }
 
-    @Test //ready??
+    @Test //ready?
     public void getAllUsers(){
         User user1 = new User();
         int id1=1;
