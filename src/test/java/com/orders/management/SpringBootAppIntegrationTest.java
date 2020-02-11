@@ -37,10 +37,11 @@ public class SpringBootAppIntegrationTest extends MySQLContainer<SpringBootAppIn
         Properties testApplicationProperties = new Properties();
         try {
             applicationProperties.load(new FileReader(APPLICATION_PROPERTIES));
-            driver = applicationProperties.getProperty(APPLICATION_PROPERTY_NAME__DRIVER_CLASS_NAME);
 
             testApplicationProperties.load(new FileReader(TEST_APPLICATION_PROPERTIES));
             mysqlContainerImageVersion = testApplicationProperties.getProperty(TEST_APPLICATION_PROPERTY_NAME__MYSQL_CONTAINER_IMAGE_VERSION);
+            driver = testApplicationProperties.getProperty(APPLICATION_PROPERTY_NAME__DRIVER_CLASS_NAME);
+
         }
         catch (IOException e) {
             driver = "com.mysql.cj.jdbc.Driver";    // ""com.mysql.jdbc.Driver";

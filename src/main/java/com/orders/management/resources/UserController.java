@@ -1,11 +1,9 @@
-package com.orders.management.users.resources;
+package com.orders.management.resources;
 
 import java.util.List;
-import java.util.Optional;
-import java.util.concurrent.atomic.AtomicLong;
 
 import com.orders.management.domain.User;
-import com.orders.management.users.services.UserServices;
+import com.orders.management.services.UserServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

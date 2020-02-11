@@ -1,4 +1,4 @@
-package com.orders.management.users.repository;
+package com.orders.management.repository;
 
 import com.orders.management.domain.User;
 import org.springframework.data.repository.CrudRepository;

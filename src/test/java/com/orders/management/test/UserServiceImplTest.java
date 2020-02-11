@@ -1,28 +1,15 @@
 package com.orders.management.test;
 
 import com.orders.management.domain.User;
-import com.orders.management.users.repository.UserRepository;
-import com.orders.management.users.resources.UserController;
-import com.orders.management.users.services.UserServiceImpl;
-import com.orders.management.users.services.UserServices;
-import org.apache.commons.lang3.RandomStringUtils;
-import org.hamcrest.Matchers;
-import org.junit.Assert;
+import com.orders.management.repository.UserRepository;
+import com.orders.management.services.UserServiceImpl;
 import org.junit.jupiter.api.Test;
-import org.junit.platform.commons.util.StringUtils;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.Mockito;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
-import org.springframework.test.web.servlet.MockMvc;
 
-import javax.jws.soap.SOAPBinding;
-import javax.xml.ws.Service;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -41,7 +28,7 @@ class UserServiceImplTest {
     @Mock
     private UserRepository userRepository;
 
-    @Test
+    @Test // not ready / doesnt work
     public void deleteUser(){
         User user = new User();
         int id=1;
@@ -62,7 +49,7 @@ class UserServiceImplTest {
 
     }
 
-    @Test
+    @Test // ready
     public void getUser(){
         User user = new User();
         int id=1;
@@ -85,7 +72,7 @@ class UserServiceImplTest {
         assertNotNull(res);
     }
 
-    @Test
+    @Test // not ready / doesnt work
     public void addUser(){
         User user = new User();
         int id=1;
@@ -97,10 +84,15 @@ class UserServiceImplTest {
         user.setActive(true);
         user.setEmail("alex@alex.com");
 
-        when(userRepository.findById(id)).thenReturn(Optional.of(user));
+        when(userRepository.save(user)).thenReturn(user);
+        int result = userServiceImpl.addUser(user);
+        assertNotNull(result);
+        assertEquals(result, user.getId());
+
+
     }
 
-    @Test
+    @Test //ready?
     public void getAllUsers(){
         User user1 = new User();
         int id1=1;
@@ -122,18 +114,18 @@ class UserServiceImplTest {
         user2.setActive(true);
         user2.setEmail("alex@alex.com");
 
-        List<User> UserList = new ArrayList<>();
-        UserList.add(user1);
-        UserList.add(user2);
+        List<User> userList = new ArrayList<>();
+        userList.add(user1);
+        userList.add(user2);
 
-        when(userRepository.findAll()).thenReturn(UserList);
+        when(userRepository.findAll()).thenReturn(userList);
         //Assert.assertThat(UserList,userServiceImpl.getAllUsers());
         List<User> result = userServiceImpl.getAllUsers();
         assertNotNull(result);
-        assertEquals(UserList,result);
+        assertEquals(userList,result);
     }
 
-    @Test
+    @Test // not ready / doent work
     public void updateUser(){
         User user = new User();
         int id=1;
@@ -146,6 +138,10 @@ class UserServiceImplTest {
         user.setEmail("alex@alex.com");
 
         when(userRepository.findById(id)).thenReturn(Optional.of(user));
+        when(userRepository.save(user)).thenReturn(user);
+
+        User result = userServiceImpl.updateUser(user);
+        assertEquals(user,result);
     }
 
 }

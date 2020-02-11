@@ -20,5 +20,10 @@ public class DocumentManagementTests {
 		//assertEquals(1, 1);
 		logger.info("               !!!!!!!!!!!!!!!!!!!!!!!!! contextLoaded OK !!!!!!!!!!!!!!!!!!!!!!!!!!");
     }
+    @Test
+	public void test()
+	{
+		System.out.println("test");
+	}
 
 }
