@@ -34,5 +34,8 @@ public class UserController {
     @GetMapping("/id")
     public User getUser(@RequestParam int id) { return serv.getUser(id); }
 
+    @PostMapping
+    public User updateUser(@RequestBody User user){ return serv.updateUser(user); }
+
 
 }

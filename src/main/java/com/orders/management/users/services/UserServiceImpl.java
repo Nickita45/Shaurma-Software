@@ -36,7 +36,14 @@ public class UserServiceImpl implements UserServices {
     public User getUser(int id){
         Optional<User> optional = userRep.findById(id);
         return optional.orElse(new User());
+    }
 
+    @Override
+    public User updateUser(User user){
+        Optional<User> optional = userRep.findById(user.getId());
+        if(optional.isPresent())
+             return userRep.save(user);
+        else return new User();
     }
 
 }
