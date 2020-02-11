@@ -1,8 +1,8 @@
-package com.orders.management.users.resources;
+package com.orders.management.resources;
 
 
 import com.orders.management.domain.Document;
-import com.orders.management.users.services.DocumentService;
+import com.orders.management.services.DocumentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

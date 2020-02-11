@@ -1,7 +1,8 @@
-package com.orders.management.users.services;
+package com.orders.management.services;
 
         import com.orders.management.domain.Document;
-        import com.orders.management.users.repository.DocumentRepository;
+
+        import com.orders.management.repository.DocumentRepository;
         import org.springframework.beans.factory.annotation.Autowired;
         import org.springframework.stereotype.Service;
 
