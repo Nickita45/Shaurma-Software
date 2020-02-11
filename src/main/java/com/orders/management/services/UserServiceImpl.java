@@ -1,12 +1,11 @@
-package com.orders.management.users.services;
+package com.orders.management.services;
 
 import com.orders.management.domain.User;
-import com.orders.management.users.repository.UserRepository;
+import com.orders.management.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
-import javax.jws.soap.SOAPBinding;
 import java.util.List;
 import java.util.Optional;
 

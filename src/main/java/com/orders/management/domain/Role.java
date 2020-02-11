@@ -9,10 +9,10 @@ public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
-    private long id;
+    private int id;
 
     @Column(name = "employee_id")
-    private long employeeId;
+    private int employeeId;
 
     @Column(name = "role_name",length = 30)
     private String roleName;
@@ -24,11 +24,11 @@ public class Role {
     public void setRoleName(String roleName) { this.roleName = roleName; }
     public String getRoleName() { return roleName;}
 
-    public void setId(long id){ this.id = id;}
-    public long getId(){ return id; }
+    public void setId(int id){ this.id = id;}
+    public int getId(){ return id; }
 
-    public void setEmployeeIdId(long id){ this.employeeId = id;}
-    public long getEmployeeIdId(){ return employeeId; }
+    public void setEmployeeIdId(int id){ this.employeeId = id;}
+    public int getEmployeeIdId(){ return employeeId; }
 
     public void setUser(User user){ this.user=user; }
     public User getUser(){ return user;}
