@@ -16,7 +16,7 @@ public class Additive {
 
     private String name;
     private double price;
-    @OneToMany(mappedBy = "additive_ids")
+    @ManyToMany(mappedBy = "additive_id")
     private Set<Line> line_ids;
 
     public String getName() {
@@ -31,14 +31,6 @@ public class Additive {
     }
     public void setPrice(double price) {
         this.price = price;
-    }
-
-    public Set<Line> getLine_ids() {
-        return line_ids;
-    }
-
-    public void setLine_ids(Set<Line> line_ids) {
-        this.line_ids = line_ids;
     }
 
     public int getId() {

@@ -5,12 +5,14 @@ import java.util.Set;
 
 
 @Entity
+@Table(name = "users")
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
-    private int userId;
+  //  @OneToOne(mappedBy="userId")
+    private Integer userId;
 
     @Column(name = "first_name",length = 40)
     private String firstName;
@@ -30,8 +32,30 @@ public class User {
     @Column(name = "email",length = 40)
     private String email;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user", fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user_id", fetch = FetchType.EAGER)
     private Set<Role> roleList;
+    @OneToOne(mappedBy = "user_cash", cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY, optional = false)
+    private Document document;
+    @OneToOne(mappedBy = "user_id", cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY, optional = false)
+    private Line line;
+
+    public Line getLine() {
+        return line;
+    }
+
+    public void setLine(Line line) {
+        this.line = line;
+    }
+
+    public Document getDocument() {
+        return document;
+    }
+
+    public void setDocument(Document document) {
+        this.document = document;
+    }
 
     public void setId(int id){ this.userId = id;}
     public int getId(){ return userId; }

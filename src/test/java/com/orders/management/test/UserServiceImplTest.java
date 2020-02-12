@@ -138,10 +138,12 @@ class UserServiceImplTest {
         user.setEmail("alex@alex.com");
 
         when(userRepository.findById(id)).thenReturn(Optional.of(user));
+        user.setFirstName("Nick");
         when(userRepository.save(user)).thenReturn(user);
 
         User result = userServiceImpl.updateUser(user);
         assertEquals(user,result);
+        System.out.println(user.getFirstName());
     }
 
 }

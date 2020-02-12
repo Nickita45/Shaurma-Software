@@ -18,8 +18,8 @@ public class Role {
     private String roleName;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User user;
+    @JoinColumn(name = "id_role", nullable=false)
+    private User user_id;
 
     public void setRoleName(String roleName) { this.roleName = roleName; }
     public String getRoleName() { return roleName;}
@@ -30,7 +30,11 @@ public class Role {
     public void setEmployeeIdId(int id){ this.employeeId = id;}
     public int getEmployeeIdId(){ return employeeId; }
 
-    public void setUser(User user){ this.user=user; }
-    public User getUser(){ return user;}
+    public User getUser_id() {
+        return user_id;
+    }
 
+    public void setUser_id(User user_id) {
+        this.user_id = user_id;
+    }
 }

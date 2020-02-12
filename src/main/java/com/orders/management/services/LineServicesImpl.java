@@ -20,6 +20,10 @@ public class LineServicesImpl implements LineServices{
     private SpiceServices spiceService;
     @Autowired
     private ShaurmaTypeServices shaurmaTypeServices;
+    @Autowired
+    private DocumentService documentService;
+    @Autowired
+    private UserServices userServices;
 
     private ObjectMapper mapper;
 
@@ -39,8 +43,8 @@ public class LineServicesImpl implements LineServices{
         Line line1 = new Line();
         line1.setShaurmaTypeId(shaurmaTypeServices.findbyId(requestLine.getShaurmaTypeId()));
         line1.setDescription(requestLine.getDescription());
-        line1.setOrder_id(requestLine.getOrder_id());
-        line1.setUser_id(requestLine.getUser_id());
+        line1.setOrder_id(documentService.getDocumentById(requestLine.getOrder_id()));
+        line1.setUser_id(userServices.getUser(requestLine.getUser_id()));
         line1.setAdditive_ids(additivesServices.findByAdditiveIds(requestLine.getAdditiveIds()));
         line1.setSpice_id(spiceService.findBySpiceIds(requestLine.getSpiceIds()));
 
