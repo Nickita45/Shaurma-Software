@@ -91,8 +91,6 @@ class UserServiceImplTest {
         int result = userServiceImpl.addUser(user);
         assertNotNull(result);
         assertEquals(result, user.getId());
-
-
     }
 
     @Test //ready?

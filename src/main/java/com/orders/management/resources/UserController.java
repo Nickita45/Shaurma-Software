@@ -24,7 +24,7 @@ public class UserController {
         return serv.getAllUsers();
     }
 
-    @DeleteMapping
+    @DeleteMapping("/id")
     public void deleteUser(@RequestParam int id){
         serv.deleteUser(id);
     }
