@@ -3,11 +3,14 @@ package com.orders.management.services;
 import com.orders.management.domain.User;
 import com.orders.management.repository.DocumentRepository;
 import com.orders.management.repository.UserRepository;
+import com.orders.management.resources.DTOUser;
 import com.orders.management.resources.RequestUser;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
+import java.lang.reflect.Type;
 import java.util.List;
 import java.util.Optional;
 
@@ -21,8 +24,11 @@ public class UserServiceImpl implements UserServices {
     private LineServices lineServices;
     @Autowired
     private RoleServices roleServices;
+
     @Override
     public List<User> getAllUsers() {
+
+
         return (List<User>) userRep.findAll();
     }
 

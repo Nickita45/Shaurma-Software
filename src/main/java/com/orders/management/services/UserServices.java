@@ -1,6 +1,7 @@
 package com.orders.management.services;
 
 import com.orders.management.domain.User;
+import com.orders.management.resources.DTOUser;
 import com.orders.management.resources.RequestUser;
 
 import java.util.List;
