@@ -1,6 +1,7 @@
 package com.orders.management.domain;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "role_table")
@@ -8,33 +9,36 @@ public class Role {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private int id;
+    private int Id;
+    //@ManyToOne
+    //@JoinColumn(name = "id_role", nullable=false)
+   // @OneToMany(cascade = CascadeType.ALL, mappedBy = "roleList", fetch = FetchType.EAGER)
 
-    @Column(name = "employee_id")
-    private int employeeId;
+    @ManyToMany(mappedBy = "roleList")
+    private Set<User> userid;
+
+    public Set<User> getUserid() {
+        return userid;
+    }
+
+    public void setUserid(Set<User> userid) {
+        this.userid = userid;
+    }
 
     @Column(name = "role_name",length = 30)
     private String roleName;
 
-    @ManyToOne
-    @JoinColumn(name = "id_role", nullable=false)
-    private User user_id;
+    public int getId() {
+        return Id;
+    }
+
+    public void setId(int id) {
+        Id = id;
+    }
 
     public void setRoleName(String roleName) { this.roleName = roleName; }
     public String getRoleName() { return roleName;}
 
-    public void setId(int id){ this.id = id;}
-    public int getId(){ return id; }
 
-    public void setEmployeeIdId(int id){ this.employeeId = id;}
-    public int getEmployeeIdId(){ return employeeId; }
 
-    public User getUser_id() {
-        return user_id;
-    }
-
-    public void setUser_id(User user_id) {
-        this.user_id = user_id;
-    }
 }

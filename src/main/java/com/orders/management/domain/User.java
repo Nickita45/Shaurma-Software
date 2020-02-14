@@ -20,7 +20,7 @@ public class User {
     @Column(name = "last_name",length = 40)
     private String lastName;
 
-    @Column(name = "login",length = 40)
+    @Column(name = "login",length = 40, unique = true)
     private String login;
 
     @Column(name = "password",length = 40)
@@ -29,10 +29,18 @@ public class User {
     @Column(name = "active")
     private boolean active;
 
-    @Column(name = "email",length = 40)
+    @Column(name = "email",length = 40,unique = true)
     private String email;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user_id", fetch = FetchType.EAGER)
+    //@OneToMany(cascade = CascadeType.ALL, mappedBy = "userid", fetch = FetchType.EAGER)
+    //@ManyToOne
+    //@JoinColumn(name = "id_role")
+
+    @ManyToMany
+    @JoinTable(
+            name = "role_ids",
+            joinColumns = @JoinColumn(name = "users_ids"),
+            inverseJoinColumns = @JoinColumn(name = "role_ids"))
     private Set<Role> roleList;
     @OneToOne(mappedBy = "user_cash", cascade = CascadeType.ALL,
             fetch = FetchType.LAZY, optional = false)
@@ -40,6 +48,14 @@ public class User {
     @OneToOne(mappedBy = "user_id", cascade = CascadeType.ALL,
             fetch = FetchType.LAZY, optional = false)
     private Line line;
+
+    public Set<Role> getRoleList() {
+        return roleList;
+    }
+
+    public void setRoleList(Set<Role> roleList) {
+        this.roleList = roleList;
+    }
 
     public Line getLine() {
         return line;
@@ -78,7 +94,6 @@ public class User {
     public void setEmail(String email){ this.email = email; }
     public String getEmail(){ return email;}
 
-    public void setRoleList(Set<Role> roleList){ this.roleList=roleList; }
-    public Set<Role> getRoleList(){ return roleList; }
+
 
 }

@@ -19,7 +19,7 @@ public class Line {
     //@JoinColumn(name="order_id", unique = true, nullable = false, updatable = false)
 
     @ManyToOne
-    @JoinColumn(name = "order_id", nullable=false)
+    @JoinColumn(name = "order_id")
             //(cascade = CascadeType.ALL, mappedBy = "lines", fetch = FetchType.EAGER)
     private Document order_id;
 
@@ -28,7 +28,7 @@ public class Line {
     @JoinColumn(name = "user_id")
     private User user_id;
     @ManyToOne
-    @JoinColumn(name="shaurma", nullable=false)
+    @JoinColumn(name="shaurma")
     private ShaurmaType shaurmaTypeId;
     @ManyToMany
     @JoinTable(

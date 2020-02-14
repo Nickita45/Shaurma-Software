@@ -1,6 +1,7 @@
 package com.orders.management.services;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.orders.management.domain.Document;
 import com.orders.management.domain.Line;
 import com.orders.management.repository.LineRepository;
 import com.orders.management.resources.RequestLine;
@@ -8,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class LineServicesImpl implements LineServices{
@@ -50,6 +52,16 @@ public class LineServicesImpl implements LineServices{
 
 
         return lineRepository.save(line1).getId();
+    }
+
+    @Override
+    public Line findbyId(int id) {
+        Optional<Line> optional = lineRepository.findById(id);
+        Line line1 = new Line();
+        if(optional.isPresent()){
+            line1 = optional.get();
+        }
+        return line1;
     }
 
 }

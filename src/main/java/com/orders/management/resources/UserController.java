@@ -15,7 +15,7 @@ public class UserController {
     private UserServices serv;
 
     @PutMapping
-    public int AddUser(@RequestBody User user) {
+    public int AddUser(@RequestBody RequestUser user) {
         return serv.addUser(user);
     }
 
