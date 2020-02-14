@@ -1,6 +1,7 @@
 package com.orders.management.domain;
 
 import javax.persistence.*;
+import javax.validation.constraints.Pattern;
 import java.util.Set;
 
 
@@ -20,16 +21,18 @@ public class User {
     @Column(name = "last_name",length = 40)
     private String lastName;
 
-    @Column(name = "login",length = 40, unique = true)
+    @Column(name = "login",length = 40, unique = true, nullable = false)
     private String login;
 
-    @Column(name = "password",length = 40)
+    @Column(name = "password",length = 40, nullable = false)
+    @Pattern(regexp="^[a-zA-Z0-9]{4,}",message="length must be at least 4")
     private String password;
 
     @Column(name = "active")
     private boolean active;
 
     @Column(name = "email",length = 40,unique = true)
+    @Pattern(regexp = "^[A-Za-z0-9+_.-]+@[a-zA-Z0-9.-]+$" ,message = "wrong email")
     private String email;
 
     //@OneToMany(cascade = CascadeType.ALL, mappedBy = "userid", fetch = FetchType.EAGER)
