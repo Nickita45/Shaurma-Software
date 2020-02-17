@@ -32,7 +32,7 @@ public class UserControllerIntegrationTest extends BaseIntegrationTest {
     @Test
     public void testAddUser() throws Exception{
         User user = new User();
-        int id = 4;
+        int id = 6;
         user.setId(id);
         user.setFirstName("Alex");
         user.setLastName("Petrov");
@@ -46,7 +46,7 @@ public class UserControllerIntegrationTest extends BaseIntegrationTest {
         HttpEntity<User> entity = new HttpEntity<User>(user, header);
         ResponseEntity<String> userResponseEntity = testRestTemplate.exchange(
                 createURLWithPort()+"/users", HttpMethod.PUT, entity ,String.class);
-        //assertEquals(HttpStatus.OK, userResponseEntity.getStatusCode());
+        assertEquals(HttpStatus.OK, userResponseEntity.getStatusCode());
         //User resultUser = mapper.readValue(userResponseEntity.getBody(), User.class);
         //assertEquals(user, resultUser);
     }
@@ -63,14 +63,9 @@ public class UserControllerIntegrationTest extends BaseIntegrationTest {
     }
 
     @Test
-    public void testUpdateUser(){
-
-    }
-
-    @Test
     public void testDeleteUser(){
         User user = new User();
-        int id=1;
+        int id=3;
         HttpHeaders header = new HttpHeaders();
         header.set("Authorization", getAuthorisationString());
         HttpEntity<User> entity = new HttpEntity<User>(user, header);
