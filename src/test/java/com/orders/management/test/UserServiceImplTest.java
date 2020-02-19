@@ -88,9 +88,9 @@ class UserServiceImplTest {
         user.setUserIds(set1);
 
         // when(userRepository.save(user)).thenReturn(user);
-       // int result = userServiceImpl.addUser(user);
-        //assertNotNull(result);
-       // assertEquals(result, user.getId());
+   //     int result = userServiceImpl.addUser(user);
+      //  assertNotNull(result);
+        //assertEquals(result, user.getId());
 
 
     }
