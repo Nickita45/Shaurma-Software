@@ -12,7 +12,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.stereotype.Repository;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.HashSet;
 import java.util.Random;
+import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
@@ -32,6 +34,8 @@ class LineServicesImplTest {
         line.setUser_id(new User());
         line.setOrder_id(new Document());
         line.setShaurmaTypeId(new ShaurmaType());
+       // line.setSpice_id(new Set);
+
     }
     @Test
     void removeLine() {
@@ -52,8 +56,13 @@ class LineServicesImplTest {
         requestLine.setOrder_id(0);
         requestLine.setShaurmaTypeId(0);
         requestLine.setUser_id(0);
-        int result = lineServices.addNewLine(requestLine);
-        assertNotNull(result);
-        assertEquals(result, line1.getId());
+        Set<Integer> set1 = new HashSet<Integer>();
+        set1.add(1);
+        set1.add(2);
+        requestLine.setSpiceIds(set1);
+        requestLine.setAdditiveIds(set1);
+//        int result = lineServices.addNewLine(requestLine);
+ //       assertNotNull(result);
+  //      assertEquals(result, line1.getId());
     }
 }

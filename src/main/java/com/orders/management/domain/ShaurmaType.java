@@ -14,7 +14,7 @@ public class ShaurmaType {
 
     private String name;
     private double price;
-    @OneToMany(mappedBy="shaurmaTypeId")
+    @OneToMany(mappedBy="shaurmaTypeId", fetch = FetchType.EAGER)
     private Set<Line> line_ids;
 
     public String getName() {

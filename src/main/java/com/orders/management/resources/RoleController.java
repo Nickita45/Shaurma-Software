@@ -7,6 +7,7 @@ import com.orders.management.services.ShaurmaTypeServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Arrays;
 import java.util.List;
 @RestController
 @RequestMapping("/role")
@@ -19,7 +20,8 @@ public class RoleController {
         return roleServices.addNewRole(role);
     }
     @GetMapping
-    public List<Role> getAllSpices() {
+    public List<Role> getAllRoles() {
+
         return roleServices.getAllRole();
     }
     @DeleteMapping

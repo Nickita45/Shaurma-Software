@@ -1,4 +1,4 @@
-package com.orders.management.resources;
+package com.orders.management.domain;
 
 import java.util.Set;
 
@@ -9,9 +9,17 @@ public class DTOUser {
   //  private String password;
     private boolean active;
     private String email;
-    private Set<Integer> userIds;
+    private String userIds;
    // private int documentId;
    // private int lineId;
+
+    public String getUserIds() {
+        return userIds;
+    }
+
+    public void setUserIds(String userIds) {
+        this.userIds = userIds;
+    }
 
     public String getFirstName() {
         return firstName;
@@ -53,11 +61,4 @@ public class DTOUser {
         this.email = email;
     }
 
-    public Set<Integer> getUserIds() {
-        return userIds;
-    }
-
-    public void setUserIds(Set<Integer> userIds) {
-        this.userIds = userIds;
-    }
 }

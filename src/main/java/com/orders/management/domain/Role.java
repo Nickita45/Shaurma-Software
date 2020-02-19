@@ -14,7 +14,7 @@ public class Role {
     //@JoinColumn(name = "id_role", nullable=false)
    // @OneToMany(cascade = CascadeType.ALL, mappedBy = "roleList", fetch = FetchType.EAGER)
 
-    @ManyToMany(mappedBy = "roleList")
+    @ManyToMany(mappedBy = "roleList",fetch = FetchType.EAGER)
     private Set<User> userid;
 
     public Set<User> getUserid() {

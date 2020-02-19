@@ -1,16 +1,19 @@
 package com.orders.management.services;
 
+import com.orders.management.domain.Role;
 import com.orders.management.domain.User;
-import com.orders.management.repository.DocumentRepository;
 import com.orders.management.repository.UserRepository;
-import com.orders.management.resources.DTOUser;
+import com.orders.management.domain.DTOUser;
 import com.orders.management.resources.RequestUser;
+import com.orders.management.util.ObjectMapperUtils;
+import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
-import java.lang.reflect.Type;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
 
@@ -24,12 +27,24 @@ public class UserServiceImpl implements UserServices {
     private LineServices lineServices;
     @Autowired
     private RoleServices roleServices;
+    private ModelMapper modelMapper = new ModelMapper();
+
+
 
     @Override
-    public List<User> getAllUsers() {
+    public List<DTOUser> getAllUsers() {
 
-
-        return (List<User>) userRep.findAll();
+        List<DTOUser> user =  ObjectMapperUtils.mapAll((List<User>) userRep.findAll(), DTOUser.class);
+        for(int i=0;i<user.size();i++)
+        {
+            Iterator<Role> iterator = ((List<User>) userRep.findAll()).get(i).getRoleList().iterator();
+            String role_string = "";
+            while (iterator.hasNext())
+            role_string+="|"+iterator.next().getRoleName();
+            role_string+="|";
+            user.get(i).setUserIds(role_string);
+        }
+        return user;
     }
 
     @Override
@@ -68,5 +83,11 @@ public class UserServiceImpl implements UserServices {
              return userRep.save(user);
         else return new User();
     }
+
+    @Override
+    public Optional<User> findByLogin(String userName) {
+        return userRep.findByLogin(userName);
+    }
+
 
 }

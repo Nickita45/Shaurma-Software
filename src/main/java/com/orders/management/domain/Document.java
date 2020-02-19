@@ -1,6 +1,9 @@
 package com.orders.management.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -22,9 +25,11 @@ public class Document {
 
     //@ManyToOne
     //@JoinColumn(name = "line_id", nullable=false)
+    @JsonBackReference
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "order_id", fetch = FetchType.EAGER)
     private Set<Line> lines;
-    @OneToOne(fetch = FetchType.LAZY)
+    @JsonManagedReference
+    @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "cashier_id")
     private User user_cash;
 

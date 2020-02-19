@@ -1,5 +1,7 @@
 package com.orders.management.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import javax.validation.constraints.Pattern;
 import java.util.Set;
@@ -39,17 +41,19 @@ public class User {
     //@ManyToOne
     //@JoinColumn(name = "id_role")
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(
             name = "role_ids",
             joinColumns = @JoinColumn(name = "users_ids"),
             inverseJoinColumns = @JoinColumn(name = "role_ids"))
     private Set<Role> roleList;
+    @JsonBackReference
     @OneToOne(mappedBy = "user_cash", cascade = CascadeType.ALL,
-            fetch = FetchType.LAZY, optional = false)
+            fetch = FetchType.EAGER, optional = false)
     private Document document;
+    @JsonBackReference
     @OneToOne(mappedBy = "user_id", cascade = CascadeType.ALL,
-            fetch = FetchType.LAZY, optional = false)
+            fetch = FetchType.EAGER, optional = false)
     private Line line;
 
     public Set<Role> getRoleList() {

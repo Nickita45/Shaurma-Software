@@ -14,4 +14,6 @@ import java.util.Set;
 public interface RoleRepository extends CrudRepository<Role, Integer> {
     @Query( value = "select * from role_table where id IN :ids" , nativeQuery = true)
     Set<Role> findByRoleIds(@Param("ids") Set<Integer> roleIdList);
+
+
 }
