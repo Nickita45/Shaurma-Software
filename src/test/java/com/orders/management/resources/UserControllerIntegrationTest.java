@@ -1,7 +1,5 @@
 package com.orders.management.resources;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 import com.orders.management.domain.User;
 import com.orders.management.test.BaseIntegrationTest;
 import org.junit.Test;
@@ -13,9 +11,7 @@ import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.http.*;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.testcontainers.shaded.com.fasterxml.jackson.databind.ObjectMapper;
-
 import static org.junit.Assert.*;
-
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
@@ -32,7 +28,7 @@ public class UserControllerIntegrationTest extends BaseIntegrationTest {
     @Test
     public void testAddUser() throws Exception{
         User user = new User();
-        int id = 6;
+        int id = 1;
         user.setId(id);
         user.setFirstName("Alex");
         user.setLastName("Petrov");

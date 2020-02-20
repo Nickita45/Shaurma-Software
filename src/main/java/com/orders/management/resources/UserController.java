@@ -7,6 +7,7 @@ import com.orders.management.services.UserServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/users")
 public class UserController {
@@ -18,6 +19,7 @@ public class UserController {
     public int AddUser(@RequestBody User user) {
         return serv.addUser(user);
     }
+
 
     @GetMapping
     public List<User> getAllUsers() {
@@ -34,6 +36,9 @@ public class UserController {
 
     @PostMapping
     public User updateUser(@RequestBody User user){ return serv.updateUser(user); }
+
+    @PostMapping("/authenticate")
+    public User authenticate(@RequestBody String login, String password){ return serv.authenticate(login,password); }
 
 
 }

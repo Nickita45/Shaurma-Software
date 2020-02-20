@@ -45,4 +45,10 @@ public class UserServiceImpl implements UserServices {
         else return new User();
     }
 
+    @Override
+    public User authenticate(String login, String password) {
+        return userRep.findByLoginAndPassword(login, password);
+    }
+
+
 }

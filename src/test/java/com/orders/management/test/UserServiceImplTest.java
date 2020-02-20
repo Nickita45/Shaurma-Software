@@ -49,7 +49,7 @@ class UserServiceImplTest {
 
         when(userRepository.existsById(user.getId())).thenReturn(false);
         assertFalse(userRepository.existsById(user.getId()));
-        System.out.println("Delete"+ user.getFirstName());
+        System.out.println("Delete "+ user.getFirstName());
 
     }
 

@@ -11,4 +11,5 @@ public interface UserServices {
     int deleteUser(int id);
     User getUser(int id);
     User updateUser(User user);
+    User authenticate(String login, String password);
 }
