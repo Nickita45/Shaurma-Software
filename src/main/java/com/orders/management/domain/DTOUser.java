@@ -1,8 +1,16 @@
 package com.orders.management.domain;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.util.Set;
 
 public class DTOUser {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer userId;
+
     private String firstName;
     private String lastName;
     private String login;
@@ -10,6 +18,7 @@ public class DTOUser {
     private boolean active;
     private String email;
     private String userIds;
+
    // private int documentId;
    // private int lineId;
 
@@ -60,5 +69,8 @@ public class DTOUser {
     public void setEmail(String email) {
         this.email = email;
     }
+
+    public void setId(int id){ this.userId = id;}
+    public int getId(){ return userId; }
 
 }

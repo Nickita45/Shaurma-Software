@@ -85,8 +85,8 @@ public class UserServiceImpl implements UserServices {
     }
 
     @Override
-    public Optional<User> findByLogin(String userName) {
-        return userRep.findByLogin(userName);
+    public User authenticate(String login, String password) {
+        return null;
     }
 
 
