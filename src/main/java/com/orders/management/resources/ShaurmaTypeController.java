@@ -14,13 +14,13 @@ public class ShaurmaTypeController {
     private ShaurmaTypeServices serv;
 
     @PutMapping
-    public int addASpice(@RequestBody ShaurmaType adds) {
+    public int addShaurmaType(@RequestBody ShaurmaType adds) {
         return serv.addNewShaurma(adds);
     }
     @GetMapping
-    public List<ShaurmaType> getAllSpices() {
+    public List<ShaurmaType> getAllShaurmaType() {
         return serv.getAllShaurmaTypes();
     }
     @DeleteMapping
-    public int deleteSpice(@RequestParam int id) { return serv.removeShaurmaType(id);}
+    public int deleteShaurmaType(@RequestParam int id) { return serv.removeShaurmaType(id);}
 }

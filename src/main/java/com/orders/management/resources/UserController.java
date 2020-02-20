@@ -2,8 +2,10 @@ package com.orders.management.resources;
 
 import java.util.List;
 
+import com.orders.management.domain.DTOUser;
 import com.orders.management.domain.User;
 import com.orders.management.services.UserServices;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,14 +17,18 @@ public class UserController {
     @Autowired
     private UserServices serv;
 
+    private ModelMapper modelMapper = new ModelMapper();
+
     @PutMapping
-    public int AddUser(@RequestBody User user) {
+    public int AddUser(@RequestBody RequestUser user) {
         return serv.addUser(user);
     }
 
 
     @GetMapping
-    public List<User> getAllUsers() {
+    public List<DTOUser> getAllUsers() {
+
+        //List<DTOUser> user = ObjectMapperUtils.mapAll(serv.getAllUsers(), DTOUser.class);
         return serv.getAllUsers();
     }
 

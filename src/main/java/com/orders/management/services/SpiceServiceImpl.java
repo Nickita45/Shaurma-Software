@@ -4,6 +4,8 @@ import com.orders.management.domain.Spice;
 import com.orders.management.repository.AdditivesRepository;
 import com.orders.management.repository.SpicesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -22,10 +24,16 @@ public class SpiceServiceImpl implements SpiceServices{
         return id;
     }
 
+
+   // @Secured({"ADMIN","USER"})
+
     @Override
     public List<Spice> getAllSpices() {
         return (List<Spice>) spicesRepository.findAll();
     }
+
+
+   // @Secured("ADMIN")
 
     @Override
     public int addNewSpice(Spice addes) {
