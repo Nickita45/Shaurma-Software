@@ -18,16 +18,16 @@ public class Line {
     //@OneToMany(mappedBy="id")
     //@JoinColumn(name="order_id", unique = true, nullable = false, updatable = false)
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "order_id")
             //(cascade = CascadeType.ALL, mappedBy = "lines", fetch = FetchType.EAGER)
     private Document order_id;
 
     //@OneToOne(mappedBy="userId")
-    @OneToOne(fetch = FetchType.EAGER)
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private User user_id;
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name="shaurma")
     private ShaurmaType shaurmaTypeId;
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)

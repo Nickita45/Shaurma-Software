@@ -49,11 +49,11 @@ public class User {
     private Set<Role> roleList;
     @JsonBackReference
     @OneToOne(mappedBy = "user_cash", cascade = CascadeType.ALL,
-            fetch = FetchType.EAGER, optional = false)
+            fetch = FetchType.LAZY, optional = false)
     private Document document;
     @JsonBackReference
     @OneToOne(mappedBy = "user_id", cascade = CascadeType.ALL,
-            fetch = FetchType.EAGER, optional = false)
+            fetch = FetchType.LAZY, optional = false)
     private Line line;
 
     public Set<Role> getRoleList() {

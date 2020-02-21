@@ -26,10 +26,10 @@ public class Document {
     //@ManyToOne
     //@JoinColumn(name = "line_id", nullable=false)
     @JsonBackReference
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "order_id", fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "order_id", fetch = FetchType.LAZY)
     private Set<Line> lines;
     @JsonManagedReference
-    @OneToOne(fetch = FetchType.EAGER)
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "cashier_id")
     private User user_cash;
 

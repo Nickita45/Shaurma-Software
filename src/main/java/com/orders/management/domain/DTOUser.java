@@ -7,8 +7,6 @@ import java.util.Set;
 
 public class DTOUser {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer userId;
 
     private String firstName;
