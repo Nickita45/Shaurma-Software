@@ -13,6 +13,6 @@ public interface UserServices {
     int deleteUser(int id);
     User getUser(int id);
     User updateUser(User user);
-
+    Optional<User> findByLogin(String userName);
     User authenticate(String login, String password);
 }

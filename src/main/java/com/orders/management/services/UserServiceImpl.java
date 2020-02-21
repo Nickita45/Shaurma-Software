@@ -49,7 +49,7 @@ public class UserServiceImpl implements UserServices {
         return user;
     }
 
-    @Secured("ROLE_ADMIN")
+    @Secured({ "ROLE_USER", "ROLE_ADMIN","ROLE_CASHIER"})
     @Override
     public int addUser(RequestUser requestUser) {
 
@@ -92,5 +92,8 @@ public class UserServiceImpl implements UserServices {
         return null;
     }
 
-
+    @Override
+    public Optional<User> findByLogin(String userName) {
+        return userRep.findByLogin(userName);
+    }
 }

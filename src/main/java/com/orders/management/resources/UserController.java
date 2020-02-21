@@ -25,10 +25,8 @@ public class UserController {
         return serv.addUser(user);
     }
 
-
     @GetMapping
     public List<DTOUser> getAllUsers() {
-
         //List<DTOUser> user = ObjectMapperUtils.mapAll(serv.getAllUsers(), DTOUser.class);
         return serv.getAllUsers();
     }
