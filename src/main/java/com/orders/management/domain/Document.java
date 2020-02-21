@@ -16,7 +16,7 @@ public class Document {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     //@OneToMany(mappedBy = "order_id")
-    private Integer id;
+    private int id;
 
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
     private LocalDateTime date;
@@ -41,7 +41,7 @@ public class Document {
         this.user_cash = user_cash;
     }
 
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 

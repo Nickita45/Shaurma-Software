@@ -15,44 +15,45 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 import javax.sql.DataSource;
 
 @Configuration
-@EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
    // @Qualifier("UserDetailService")
-    @Autowired
-    UserDetailsService userDetailsService;
-    @Autowired
-    private DataSource dataSource;
-    @Autowired
-    private RoleRepository roleRepository;
+
+  //  @Autowired
+   // private DataSource dataSource;
+  @Autowired
+  private CustomAuthenticationProvider authProvider;
+
     @Override
     public void configure(HttpSecurity http) throws Exception {
-        http
-
+        http.
+                csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/admin").hasRole("ADMIN")
-                .antMatchers("/user").hasAnyRole("ADMIN", "USER")
-                .antMatchers("/").permitAll()
-                .and().formLogin();
-        
+                .antMatchers("/**").permitAll()
+                .anyRequest().authenticated()
+                .and()
+                .httpBasic()
+        ;
+
 
     }
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 
-/*
-        auth.inMemoryAuthentication()
+
+    /*    auth.inMemoryAuthentication()
                 .withUser("user")
                 .password("{noop}pass") // Spring Security 5 requires specifying the password storage format
                 .roles("USER")
                 .and()
                 .withUser("root")
                 .password("{noop}root")
-                .roles("ADMIN");*/
-
+                .roles("ADMIN");
+*/
 
     /*    auth.jdbcAuthentication()
                 .dataSource(dataSource)
@@ -60,12 +61,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .usersByUsernameQuery("select login, password, active from users where login=?")
                 .authoritiesByUsernameQuery("select u.login, r.role_name from users u, role_table r, role_ids uhr WHERE u.user_id = uhr.users_ids AND r.id = uhr.role_ids where u.login=?");
 */
-    auth.userDetailsService(userDetailsService);
+    auth.authenticationProvider(authProvider);
     }
 
-    @Bean
-    public PasswordEncoder getpasswordEncoder() {
-        return NoOpPasswordEncoder.getInstance();
-    }
 
 }
