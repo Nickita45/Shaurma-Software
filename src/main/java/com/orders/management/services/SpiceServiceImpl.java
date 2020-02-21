@@ -26,7 +26,7 @@ public class SpiceServiceImpl implements SpiceServices{
 
 
    // @Secured({"ADMIN","USER"})
-
+    @Secured("ROLE_ADMIN")
     @Override
     public List<Spice> getAllSpices() {
         return (List<Spice>) spicesRepository.findAll();
@@ -34,13 +34,13 @@ public class SpiceServiceImpl implements SpiceServices{
 
 
    // @Secured("ADMIN")
-
+    @Secured("ROLE_ADMIN")
     @Override
     public int addNewSpice(Spice addes) {
 
         return spicesRepository.save(addes).getId();
     }
-
+    @Secured({ "ROLE_USER", "ROLE_ADMIN","ROLE_CASHIER"})
     @Override
     public Set<Spice> findBySpiceIds(Set<Integer> spiceIdList) {
         return spicesRepository.findBySpiceIds(spiceIdList);

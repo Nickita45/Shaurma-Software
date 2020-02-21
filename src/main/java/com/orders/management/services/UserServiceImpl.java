@@ -10,6 +10,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Service;
 
 
@@ -30,7 +31,8 @@ public class UserServiceImpl implements UserServices {
     private ModelMapper modelMapper = new ModelMapper();
 
 
-
+    //@Secured("ROLE_ADMIN")
+    @Secured({ "ROLE_USER", "ROLE_ADMIN","ROLE_CASHIER"})
     @Override
     public List<DTOUser> getAllUsers() {
 
@@ -47,6 +49,7 @@ public class UserServiceImpl implements UserServices {
         return user;
     }
 
+    @Secured("ROLE_ADMIN")
     @Override
     public int addUser(RequestUser requestUser) {
 
@@ -63,19 +66,19 @@ public class UserServiceImpl implements UserServices {
         userRep.save(user1);
         return (int) user1.getId();
     }
-
+    @Secured("ROLE_ADMIN")
     @Override
     public int deleteUser(int id) {
         userRep.deleteById(id);
         return id;
     }
-
+    @Secured({ "ROLE_USER", "ROLE_ADMIN","ROLE_CASHIER"})
     @Override
     public User getUser(int id){
         Optional<User> optional = userRep.findById(id);
         return optional.orElse(new User());
     }
-
+    @Secured("ROLE_ADMIN")
     @Override
     public User updateUser(User user){
         Optional<User> optional = userRep.findById(user.getId());

@@ -6,6 +6,7 @@ import com.orders.management.domain.Line;
 import com.orders.management.repository.LineRepository;
 import com.orders.management.resources.RequestLine;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -34,12 +35,12 @@ public class LineServicesImpl implements LineServices{
         lineRepository.deleteById(id);
         return id;
     }
-
+    @Secured("ROLE_ADMIN")
     @Override
     public List<Line> getAllLine() {
         return (List<Line>) lineRepository.findAll();
     }
-
+    //@Secured({"ROLE_USER","ROLE_ADMIN"})
     @Override
     public int addNewLine(RequestLine requestLine) {
         Line line1 = new Line();
